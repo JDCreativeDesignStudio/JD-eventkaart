@@ -4,13 +4,19 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="theme-color" content="#140f0b">
-  <meta name="description" content="Strategische branding en onderscheidend design voor ondernemers die klaar zijn voor de volgende stap.">
+  <meta
+    name="description"
+    content="Strategische branding en onderscheidend design voor ondernemers die klaar zijn voor de volgende stap."
+  >
 
   <title>JD Creative Design Studio</title>
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;1,400&display=swap" rel="stylesheet">
+  <link
+    href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;1,400&display=swap"
+    rel="stylesheet"
+  >
 
   <style>
     :root {
@@ -26,7 +32,7 @@
 
     body {
       margin: 0;
-      background: white;
+      background: #ffffff;
       color: var(--dark);
       font-family: Arial, Helvetica, sans-serif;
     }
@@ -46,7 +52,7 @@
       left: 16px;
       z-index: 10;
       padding: 16px;
-      background: white;
+      background: #ffffff;
       color: var(--dark);
     }
 
@@ -54,8 +60,10 @@
       top: 16px;
     }
 
+    /* Header */
+
     .header {
-      padding: 40px 6%;
+      padding: 40px 6.4%;
       background: var(--dark);
     }
 
@@ -66,25 +74,46 @@
       height: auto;
     }
 
-    .hero {
-      display: grid;
-      grid-template-columns: minmax(0, 1.2fr) minmax(0, 1fr);
-      align-items: center;
-      gap: 40px;
-      padding: 64px 6% 40px;
-      background: var(--dark);
-      color: white;
-    }
+    /* Hero: foto en tekst staan in hetzelfde vlak */
 
-    .hero-copy {
-      min-width: 0;
+    .hero {
+      position: relative;
+      display: grid;
+      grid-template-columns: minmax(0, 1fr);
+      isolation: isolate;
+      overflow: hidden;
+      background: var(--dark);
+      color: #ffffff;
     }
 
     .hero-photo {
       display: block;
+      grid-area: 1 / 1;
+      align-self: start;
       width: 100%;
       height: auto;
-      object-fit: contain;
+      z-index: 0;
+    }
+
+    .hero::before {
+      content: "";
+      grid-area: 1 / 1;
+      z-index: 1;
+      background: linear-gradient(
+        90deg,
+        rgba(20, 15, 11, 0.78),
+        rgba(20, 15, 11, 0.38)
+      );
+      pointer-events: none;
+    }
+
+    .hero-copy {
+      grid-area: 1 / 1;
+      align-self: center;
+      min-width: 0;
+      width: 100%;
+      padding: 64px 6.4% 38px;
+      z-index: 2;
     }
 
     .eyebrow {
@@ -104,8 +133,9 @@
     }
 
     h1 {
+      max-width: 14em;
       margin: 0 0 28px;
-      font-size: clamp(30px, 4vw, 52px);
+      font-size: clamp(30px, 4.7vw, 58px);
       line-height: 1.2;
     }
 
@@ -123,11 +153,12 @@
     }
 
     .services {
-      margin: 40px 0 0;
+      margin: 80px 0 0;
       color: #ded5cf;
       font-size: 11px;
       line-height: 2;
       letter-spacing: 0.1em;
+      text-align: center;
       text-transform: uppercase;
     }
 
@@ -135,12 +166,14 @@
       margin: 0 5px;
     }
 
+    /* Portfolio en Merkcheck */
+
     .cards {
       display: grid;
       grid-template-columns: repeat(2, minmax(0, 1fr));
       gap: 14px;
       max-width: 1400px;
-      margin: auto;
+      margin: 0 auto;
       padding: 100px 5%;
     }
 
@@ -151,7 +184,7 @@
       overflow: hidden;
       padding: 42px 32px 36px;
       background: linear-gradient(125deg, #352923, #1c1b1a);
-      color: white;
+      color: #ffffff;
     }
 
     .number {
@@ -206,9 +239,11 @@
       color: var(--dark);
     }
 
+    /* Footer */
+
     footer {
       background: var(--dark);
-      color: white;
+      color: #ffffff;
     }
 
     .footer-content {
@@ -216,8 +251,8 @@
       grid-template-columns: 1.5fr 0.7fr 1fr;
       gap: 32px;
       max-width: 1400px;
-      margin: auto;
-      padding: 42px 6% 30px;
+      margin: 0 auto;
+      padding: 42px 6.4% 30px;
     }
 
     .footer-logo {
@@ -272,12 +307,14 @@
 
     .copyright {
       margin: 0;
-      padding: 16px 6%;
+      padding: 16px 6.4%;
       background: #080605;
       color: var(--muted);
       font-size: 11px;
       line-height: 1.6;
     }
+
+    /* Mobiel */
 
     @media (max-width: 640px) {
       .header {
@@ -288,28 +325,37 @@
         width: 220px;
       }
 
-      .hero {
-        grid-template-columns: minmax(0, 1fr);
-        gap: 28px;
-        padding: 40px 24px 28px;
+      .hero-photo {
+        align-self: center;
+      }
+
+      .hero::before {
+        background: rgba(20, 15, 11, 0.58);
+      }
+
+      .hero-copy {
+        padding: 36px 24px 26px;
       }
 
       .hero .eyebrow {
+        margin-bottom: 18px;
         font-size: 12px;
       }
 
       h1 {
-        font-size: clamp(30px, 7.5vw, 44px);
+        font-size: clamp(28px, 7vw, 42px);
       }
 
       .intro {
-        font-size: 18px;
+        font-size: 17px;
+        line-height: 1.5;
       }
 
       .services {
-        margin-top: 32px;
+        margin-top: 28px;
         font-size: 9px;
-        line-height: 2.2;
+        line-height: 2;
+        text-align: left;
       }
 
       .cards {
@@ -378,6 +424,15 @@
 
   <main id="inhoud">
     <section class="hero" aria-labelledby="hero-title">
+      <img
+        class="hero-photo"
+        src="./assets/header.jpg"
+        alt="In gesprek over branding"
+        width="928"
+        height="665"
+        fetchpriority="high"
+      >
+
       <div class="hero-copy">
         <p class="eyebrow">Voor ondernemers met ambitie</p>
 
@@ -400,15 +455,6 @@
           Brand on Demand™
         </p>
       </div>
-
-      <img
-        class="hero-photo"
-        src="./assets/header.jpg"
-        alt="In gesprek over branding"
-        width="928"
-        height="665"
-        fetchpriority="high"
-      >
     </section>
 
     <section class="cards" aria-label="Portfolio en gratis merkcheck">
