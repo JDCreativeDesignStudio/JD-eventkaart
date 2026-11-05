@@ -4,25 +4,18 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="theme-color" content="#140f0b">
-  <meta
-    name="description"
-    content="Strategische branding en onderscheidend design voor ondernemers die klaar zijn voor de volgende stap."
-  >
+  <meta name="description" content="Strategische branding en onderscheidend design voor ondernemers die klaar zijn voor de volgende stap.">
 
   <title>JD Creative Design Studio</title>
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link
-    href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;1,400&display=swap"
-    rel="stylesheet"
-  >
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;1,400&display=swap" rel="stylesheet">
 
   <style>
     :root {
-      --background: #140f0b;
+      --dark: #140f0b;
       --copper: #d0a68e;
-      --text: #ffffff;
       --muted: #c3bfbc;
       --heading: "Playfair Display", Georgia, serif;
     }
@@ -31,15 +24,11 @@
       box-sizing: border-box;
     }
 
-    html {
-      scroll-behavior: smooth;
-    }
-
     body {
       margin: 0;
+      background: white;
+      color: var(--dark);
       font-family: Arial, Helvetica, sans-serif;
-      background: #ffffff;
-      color: var(--background);
     }
 
     a {
@@ -57,8 +46,8 @@
       left: 16px;
       z-index: 10;
       padding: 16px;
-      background: #ffffff;
-      color: #140f0b;
+      background: white;
+      color: var(--dark);
     }
 
     .skip-link:focus {
@@ -66,8 +55,8 @@
     }
 
     .header {
-      padding: 48px 6.4%;
-      background: var(--background);
+      padding: 40px 6%;
+      background: var(--dark);
     }
 
     .logo {
@@ -78,26 +67,30 @@
     }
 
     .hero {
-      padding: 160px 6.4% 38px;
-      color: var(--text);
-      background:
-        linear-gradient(
-          90deg,
-          rgba(20, 15, 11, 0.95),
-          rgba(20, 15, 11, 0.5)
-        ),
-        url("./assets/portrait.jpg") right 36% / cover;
+      display: grid;
+      grid-template-columns: minmax(0, 1.2fr) minmax(0, 1fr);
+      align-items: center;
+      gap: 40px;
+      padding: 64px 6% 40px;
+      background: var(--dark);
+      color: white;
     }
 
-    .hero-content {
-      max-width: 1100px;
-      margin: 0 auto;
+    .hero-copy {
+      min-width: 0;
+    }
+
+    .hero-photo {
+      display: block;
+      width: 100%;
+      height: auto;
+      object-fit: contain;
     }
 
     .eyebrow {
-      margin: 0 0 28px;
+      margin: 0 0 26px;
       font-family: var(--heading);
-      font-size: 16px;
+      font-size: 15px;
       font-weight: 400;
       line-height: 1.6;
       letter-spacing: 0.05em;
@@ -112,7 +105,7 @@
 
     h1 {
       margin: 0 0 28px;
-      font-size: clamp(36px, 4.7vw, 58px);
+      font-size: clamp(30px, 4vw, 52px);
       line-height: 1.2;
     }
 
@@ -125,31 +118,30 @@
       max-width: 550px;
       margin: 0;
       color: #e3dedb;
-      font-size: clamp(18px, 2.3vw, 27px);
-      line-height: 1.5;
+      font-size: clamp(18px, 2vw, 25px);
+      line-height: 1.6;
     }
 
     .services {
-      margin: 100px 0 0;
+      margin: 40px 0 0;
       color: #ded5cf;
-      font-size: 12px;
+      font-size: 11px;
       line-height: 2;
-      letter-spacing: 0.13em;
-      text-align: center;
+      letter-spacing: 0.1em;
       text-transform: uppercase;
     }
 
     .services span {
-      margin: 0 7px;
+      margin: 0 5px;
     }
 
     .cards {
       display: grid;
       grid-template-columns: repeat(2, minmax(0, 1fr));
-      gap: 12px;
+      gap: 14px;
       max-width: 1400px;
-      margin: 0 auto;
-      padding: 110px 5.1%;
+      margin: auto;
+      padding: 100px 5%;
     }
 
     .card {
@@ -157,9 +149,9 @@
       display: flex;
       flex-direction: column;
       overflow: hidden;
-      padding: 44px 32px 36px;
+      padding: 42px 32px 36px;
       background: linear-gradient(125deg, #352923, #1c1b1a);
-      color: var(--text);
+      color: white;
     }
 
     .number {
@@ -175,19 +167,18 @@
     .card .eyebrow {
       position: relative;
       color: var(--copper);
-      font-size: 15px;
     }
 
     .card h2 {
       position: relative;
       max-width: 11em;
-      margin: 0 0 28px;
+      margin: 0 0 26px;
       font-size: clamp(29px, 3.7vw, 44px);
       line-height: 1.2;
     }
 
-    .card-description {
-      margin: 0 0 38px;
+    .description {
+      margin: 0 0 36px;
       color: var(--muted);
       font-size: clamp(18px, 2vw, 23px);
       line-height: 1.6;
@@ -202,23 +193,22 @@
       padding: 18px;
       border: 1px solid var(--copper);
       color: var(--copper);
-      font-size: 16px;
+      font-size: 15px;
       line-height: 1.5;
       letter-spacing: 0.1em;
       text-align: center;
       text-decoration: none;
       text-transform: uppercase;
-      transition: background 0.2s, color 0.2s;
     }
 
     .button:hover {
       background: var(--copper);
-      color: var(--background);
+      color: var(--dark);
     }
 
     footer {
-      background: var(--background);
-      color: var(--text);
+      background: var(--dark);
+      color: white;
     }
 
     .footer-content {
@@ -226,8 +216,8 @@
       grid-template-columns: 1.5fr 0.7fr 1fr;
       gap: 32px;
       max-width: 1400px;
-      margin: 0 auto;
-      padding: 42px 6.4% 30px;
+      margin: auto;
+      padding: 42px 6% 30px;
     }
 
     .footer-logo {
@@ -239,11 +229,10 @@
       color: var(--muted);
       font-size: 13px;
       line-height: 1.7;
-      letter-spacing: 0.03em;
     }
 
     .studio p {
-      margin: 26px 0 0;
+      margin-top: 26px;
     }
 
     .icon {
@@ -264,7 +253,6 @@
     .contact h2 {
       margin: 16px 0 6px;
       font-size: 19px;
-      line-height: 1.4;
     }
 
     .contact p {
@@ -284,12 +272,11 @@
 
     .copyright {
       margin: 0;
-      padding: 16px 6.4%;
+      padding: 16px 6%;
       background: #080605;
       color: var(--muted);
       font-size: 11px;
       line-height: 1.6;
-      letter-spacing: 0.05em;
     }
 
     @media (max-width: 640px) {
@@ -302,18 +289,12 @@
       }
 
       .hero {
-        padding: 64px 24px 28px;
-        background:
-          linear-gradient(
-            90deg,
-            rgba(20, 15, 11, 0.94),
-            rgba(20, 15, 11, 0.79)
-          ),
-          url("./assets/portrait.jpg") center 24% / cover;
+        grid-template-columns: minmax(0, 1fr);
+        gap: 28px;
+        padding: 40px 24px 28px;
       }
 
       .hero .eyebrow {
-        margin-bottom: 24px;
         font-size: 12px;
       }
 
@@ -323,17 +304,12 @@
 
       .intro {
         font-size: 18px;
-        line-height: 1.6;
       }
 
       .services {
-        margin-top: 44px;
+        margin-top: 32px;
         font-size: 9px;
         line-height: 2.2;
-      }
-
-      .services span {
-        margin: 0 4px;
       }
 
       .cards {
@@ -351,12 +327,10 @@
       }
 
       .card h2 {
-        margin-bottom: 24px;
         font-size: 32px;
       }
 
-      .card-description {
-        margin-bottom: 30px;
+      .description {
         font-size: 18px;
       }
 
@@ -384,16 +358,6 @@
         padding: 18px 24px;
       }
     }
-
-    @media (prefers-reduced-motion: reduce) {
-      html {
-        scroll-behavior: auto;
-      }
-
-      .button {
-        transition: none;
-      }
-    }
   </style>
 </head>
 
@@ -414,7 +378,7 @@
 
   <main id="inhoud">
     <section class="hero" aria-labelledby="hero-title">
-      <div class="hero-content">
+      <div class="hero-copy">
         <p class="eyebrow">Voor ondernemers met ambitie</p>
 
         <h1 id="hero-title">
@@ -436,6 +400,15 @@
           Brand on Demand™
         </p>
       </div>
+
+      <img
+        class="hero-photo"
+        src="./assets/header.jpg"
+        alt="In gesprek over branding"
+        width="928"
+        height="665"
+        fetchpriority="high"
+      >
     </section>
 
     <section class="cards" aria-label="Portfolio en gratis merkcheck">
@@ -446,7 +419,7 @@
 
         <h2>Merken die het verschil maken.</h2>
 
-        <p class="card-description">
+        <p class="description">
           Een selectie van brandingprojecten en merkidentiteiten
           voor ambitieuze ondernemers.
         </p>
@@ -466,7 +439,7 @@
 
         <h2>Hoe sterk staat jouw merk?</h2>
 
-        <p class="card-description">
+        <p class="description">
           Krijg in enkele minuten inzicht in de sterke punten
           en groeikansen van jouw merk.
         </p>
@@ -508,9 +481,7 @@
             stroke-linecap="round"
             stroke-linejoin="round"
           >
-            <path
-              d="M5 3 3 5c-2 7 9 18 16 16l2-2-5-4-2 2c-3-1-6-4-7-7l2-2Z"
-            />
+            <path d="M5 3 3 5c-2 7 9 18 16 16l2-2-5-4-2 2c-3-1-6-4-7-7l2-2Z"/>
           </svg>
         </span>
 
