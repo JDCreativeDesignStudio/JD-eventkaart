@@ -14,7 +14,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link
-    href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;1,400&display=swap"
+    href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400&family=Playfair+Display:ital,wght@0,400;1,400&display=swap"
     rel="stylesheet"
   >
 
@@ -22,6 +22,7 @@
     :root {
       --dark: #140f0b;
       --copper: #d0a68e;
+      --accent: #e0b59d;
       --muted: #c3bfbc;
       --heading: "Playfair Display", Georgia, serif;
     }
@@ -126,6 +127,15 @@
       text-transform: uppercase;
     }
 
+    .hero .eyebrow {
+      display: block;
+      width: max-content;
+      max-width: 100%;
+      font-size: clamp(9px, 1.4vw, 16px);
+      white-space: nowrap;
+      letter-spacing: 0.09em;
+    }
+
     h1,
     h2 {
       font-family: var(--heading);
@@ -139,8 +149,13 @@
       line-height: 1.2;
     }
 
+    .hero-title-line {
+      display: inline-block;
+      white-space: nowrap;
+    }
+
     h1 em {
-      color: #e0b59d;
+      color: var(--accent);
       font-weight: 400;
     }
 
@@ -154,12 +169,27 @@
 
     .services {
       margin: 80px 0 0;
-      color: #ded5cf;
-      font-size: 11px;
-      line-height: 2;
-      letter-spacing: 0.1em;
       text-align: center;
-      text-transform: uppercase;
+    }
+
+    .services h2 {
+      margin: 0 0 10px;
+      color: var(--accent);
+      font-family: var(--heading);
+      font-size: 18px;
+      font-style: normal;
+      font-weight: 400;
+      line-height: 1.4;
+      letter-spacing: 0.05em;
+    }
+
+    .services p {
+      margin: 0;
+      color: #ded5cf;
+      font-family: "Open Sans", Arial, sans-serif;
+      font-size: 13px;
+      font-weight: 400;
+      line-height: 1.8;
     }
 
     .services span {
@@ -368,14 +398,11 @@
 
       .hero-copy {
         position: relative;
-
-        /* Tekst wat lager in de header */
         padding: 72px 24px 54px;
       }
 
       .hero .eyebrow {
         margin-bottom: 18px;
-        font-size: 12px;
       }
 
       h1 {
@@ -389,9 +416,19 @@
 
       .services {
         margin-top: 28px;
-        font-size: 9px;
-        line-height: 2;
         text-align: left;
+      }
+
+      .services h2 {
+        font-size: 16px;
+      }
+
+      .services p {
+        font-size: 12px;
+      }
+
+      .services span {
+        margin: 0 3px;
       }
 
       .cards {
@@ -464,10 +501,10 @@
       >
 
       <div class="hero-copy">
-        <p class="eyebrow">Voor ondernemers met ambitie</p>
+        <p class="eyebrow">Voor ondernemers die willen groeien</p>
 
         <h1 id="hero-title">
-          Jouw ambities groeien.<br>
+          <span class="hero-title-line">Jouw ambities groeien.</span><br>
           <em>Groeit jouw merk mee?</em>
         </h1>
 
@@ -477,13 +514,17 @@
           Voor de volgende stap.
         </p>
 
-        <p class="services">
-          Branding
-          <span aria-hidden="true">|</span>
-          Logo &amp; huisstijl
-          <span aria-hidden="true">|</span>
-          Brand on Demand™
-        </p>
+        <div class="services" aria-labelledby="services-title">
+          <h2 id="services-title">DIENSTEN</h2>
+
+          <p>
+            Branding
+            <span aria-hidden="true">|</span>
+            Logo &amp; Huisstijl
+            <span aria-hidden="true">|</span>
+            Brand On Demand™
+          </p>
+        </div>
       </div>
     </section>
 
@@ -593,5 +634,29 @@
       © 2026 JD Creative Design Studio
     </p>
   </footer>
+
+  <script>
+    (() => {
+      const title = document.querySelector(".hero-title-line");
+      const eyebrow = document.querySelector(".hero .eyebrow");
+
+      function matchWidth() {
+        eyebrow.style.fontSize = "12px";
+
+        const target = title.getBoundingClientRect().width;
+        const actual = eyebrow.getBoundingClientRect().width;
+
+        if (target && actual) {
+          eyebrow.style.fontSize = `${12 * target * 0.90 / actual}px`;
+        }
+      }
+
+      const observer = new ResizeObserver(matchWidth);
+      observer.observe(title);
+
+      document.fonts.ready.then(matchWidth);
+      matchWidth();
+    })();
+  </script>
 </body>
 </html>
